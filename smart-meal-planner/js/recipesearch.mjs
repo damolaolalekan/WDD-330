@@ -1,4 +1,4 @@
-const API_KEY = "YOUR_SPOONACULAR_KEY";
+const API_KEY = "bbefe1f05a0a4a8bbff1597c0c10b43d";
 
 export async function searchRecipes(query){
 
