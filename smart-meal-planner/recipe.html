@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Recipe Details | Smart Meal Planner</title>
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet"
+          href="css/styles.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ===================== -->
+    <!-- Sidebar -->
+    <!-- ===================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                <i class="fa-solid fa-utensils"></i>
+
+            </div>
+
+            <div>
+
+                <h2>Smart</h2>
+
+                <span>Meal Planner</span>
+
+            </div>
+
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+
+                <i class="fa-solid fa-house"></i>
+
+                Home
+
+            </a>
+
+            <a href="planner.html">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                Meal Planner
+
+            </a>
+
+            <a href="favorites.html">
+
+                <i class="fa-solid fa-heart"></i>
+
+                Favorites
+
+            </a>
+
+            <a href="shopping.html">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Shopping List
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- ===================== -->
+    <!-- Main Content -->
+    <!-- ===================== -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <a href="index.html">
+
+                ← Back
+
+            </a>
+
+            <button id="themeToggle">
+
+                <i class="fa-solid fa-moon"></i>
+
+            </button>
+
+        </header>
+
+        <!-- ===================== -->
+        <!-- Recipe Hero -->
+        <!-- ===================== -->
+
+        <section class="recipe-hero">
+
+            <img id="recipeImage"
+                 src=""
+                 alt="Recipe">
+
+            <div class="recipe-info">
+
+                <h1 id="recipeTitle">
+
+                    Loading...
+
+                </h1>
+
+                <div class="recipe-stats">
+
+                    <span>
+
+                        <i class="fa-solid fa-clock"></i>
+
+                        <span id="readyTime"></span>
+
+                    </span>
+
+                    <span>
+
+                        <i class="fa-solid fa-users"></i>
+
+                        <span id="servings"></span>
+
+                    </span>
+
+                    <span>
+
+                        <i class="fa-solid fa-heart-pulse"></i>
+
+                        Health Score:
+
+                        <span id="healthScore"></span>
+
+                    </span>
+
+                </div>
+
+                <div id="summary"
+                     class="summary">
+
+                </div>
+
+                <div class="recipe-buttons">
+
+                    <button id="favoriteBtn"
+                            class="primary-btn">
+
+                        <i class="fa-solid fa-heart"></i>
+
+                        Add to Favorites
+
+                    </button>
+
+                    <button id="plannerBtn"
+                            class="secondary-btn">
+
+                        <i class="fa-solid fa-calendar-plus"></i>
+
+                        Add to Planner
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===================== -->
+        <!-- Ingredients -->
+        <!-- ===================== -->
+
+        <section class="recipe-section">
+
+            <h2>
+
+                Ingredients
+
+            </h2>
+
+            <ul id="ingredients"
+                class="ingredients-list">
+
+            </ul>
+
+        </section>
+
+        <!-- ===================== -->
+        <!-- Instructions -->
+        <!-- ===================== -->
+
+        <section class="recipe-section">
+
+            <h2>
+
+                Instructions
+
+            </h2>
+
+            <div id="instructions">
+
+            </div>
+
+        </section>
+
+        <!-- ===================== -->
+        <!-- Nutrition -->
+        <!-- ===================== -->
+
+        <section class="recipe-section">
+
+            <h2>
+
+                Nutrition Facts
+
+            </h2>
+
+            <div id="nutrition"
+                 class="nutrition-grid">
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- ===================== -->
+<!-- Script -->
+<!-- ===================== -->
+
+<script type="module">
+
+import RecipeDetails from "./js/RecipeDetails.mjs";
+
+const page = new RecipeDetails();
+
+page.init();
+
+</script>
+
+</body>
+
+</html>
+

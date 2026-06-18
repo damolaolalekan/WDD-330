@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Meal Planner | Smart Meal Planner</title>
+    <title>Shopping List | Smart Meal Planner</title>
 
     <link rel="stylesheet" href="css/styles.css">
 
@@ -58,7 +58,7 @@
 
             </a>
 
-            <a class="active" href="planner.html">
+            <a href="planner.html">
 
                 <i class="fa-solid fa-calendar-days"></i>
 
@@ -74,7 +74,7 @@
 
             </a>
 
-            <a href="shopping.html">
+            <a class="active" href="shopping.html">
 
                 <i class="fa-solid fa-cart-shopping"></i>
 
@@ -90,53 +90,42 @@
 
         <header class="topbar">
 
-            <h1>Weekly Meal Planner</h1>
+            <h1>Shopping List</h1>
 
-            <button id="clearPlanner">
+            <div>
 
-                Clear Planner
+                <button id="exportList">
 
-            </button>
+                    Export
+
+                </button>
+
+                <button id="clearList">
+
+                    Clear
+
+                </button>
+
+            </div>
 
         </header>
 
-        <div id="plannerGrid"
-             class="planner-grid">
+        <ul id="shoppingList"
+            class="shopping-list">
 
-        </div>
+        </ul>
 
     </main>
 
 </div>
 
-<template id="plannerCard">
-
-<div class="planner-card">
-
-<h3 class="day-name"></h3>
-
-<input
-type="text"
-class="meal-input"
-placeholder="Enter recipe name">
-
-<button class="save-meal">
-
-Save Meal
-
-</button>
-
-</div>
-
-</template>
-
 <script type="module">
 
-import MealPlanner from "./js/MealPlanner.mjs";
+import ShoppingList from "./js/ShoppingList.mjs";
 
-const planner = new MealPlanner();
+const shopping = new ShoppingList();
 
-planner.render();
+shopping.render();
 
 </script>
 

@@ -5,40 +5,329 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Meal Planner</title>
      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+
+       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <header>
-    <h1>🍽 Smart Meal Planner</h1>
+<div class="container">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-utensils"></i>
+            </div>
+
+            <div>
+                <h2>Smart</h2>
+                <span>Meal Planner</span>
+            </div>
+
+        </div>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="planner.html">Planner</a>
-        <a href="favorites.html">Favorites</a>
+        <a href="index.html" class="active">
+            <i class="fa-solid fa-house"></i>
+            Home
+        </a>
+
+        <a href="#">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search
+            </a>
+
+            <a href="planner.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                Meal Planner
+            </a>
+
+            <a href="favorites.html">
+                <i class="fa-regular fa-heart"></i>
+                Favorites
+            </a>
+
+            <a href="shopping.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Shopping List
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+
     </nav>
-</header>
 
-<section class="hero">
+</aside>
 
-    <h2>Find Healthy Recipes</h2>
+<main class="main-content">
 
-    <div class="search-box">
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search recipes..."
-        >
+        <!-- HEADER -->
 
-        <button id="searchBtn">
-            Search
-        </button>
-    </div>
+        <header class="topbar">
 
-</section>
+            <div class="search-box">
 
-<section id="recipeContainer" class="recipe-grid">
+                <i class="fa-solid fa-search"></i>
 
-</section>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search recipes, ingredients...">
+
+            </div>
+
+            <div class="top-actions">
+
+                <button id="themeToggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <a href="favorites.html">
+
+                    <i class="fa-solid fa-heart"></i>
+
+                </a>
+
+                <div class="profile">
+                    <img
+                        src="https://i.pravatar.cc/60"
+                        alt="Profile">
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div>
+
+                <h1>
+                    Plan Smart.
+                    Eat Healthy.
+                </h1>
+
+                <p>
+
+                    Discover delicious recipes,
+                    organize your weekly meals,
+                    and automatically generate
+                    shopping lists.
+
+                </p>
+
+                <button id="generateBtn">
+                    Generate Meal Plan
+                </button>
+
+            </div>
+
+            <img
+                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=900"
+                alt="Healthy Food">
+
+        </section>
+
+        <!-- FEATURED -->
+
+        <section>
+
+            <div class="section-title">
+
+                <h2>Featured Recipes</h2>
+
+                <a href="#">View All</a>
+
+            </div>
+
+            <div id="recipeGrid" class="recipe-grid">
+
+            </div>
+
+        </section>
+
+        <!-- WEEKLY -->
+
+        <section class="planner-preview">
+
+            <div class="section-title">
+
+                <h2>Weekly Meal Planner</h2>
+
+                <button>
+                    Generate Plan
+                </button>
+
+            </div>
+
+            <div class="week">
+
+                <div class="day">
+
+                    <h3>Mon</h3>
+
+                    <div class="meal-slot">
+                        Add Meal
+                    </div>
+
+                </div>
+
+                <div class="day">
+
+                    <h3>Tue</h3>
+
+                    <div class="meal-slot">
+                        Add Meal
+                    </div>
+
+                </div>
+
+                <div class="day">
+
+                    <h3>Wed</h3>
+
+                    <div class="meal-slot">
+                        Add Meal
+                    </div>
+
+                </div>
+
+                <div class="day">
+
+                    <h3>Thu</h3>
+
+                    <div class="meal-slot">
+                        Add Meal
+                    </div>
+
+                </div>
+
+                <div class="day">
+
+                    <h3>Fri</h3>
+
+                    <div class="meal-slot">
+                        Add Meal
+                    </div>
+
+                </div>
+
+                <div class="day">
+
+                    <h3>Sat</h3>
+
+                    <div class="meal-slot">
+                        Add Meal
+                    </div>
+
+                </div>
+
+                <div class="day">
+
+                    <h3>Sun</h3>
+
+                    <div class="meal-slot">
+                        Add Meal
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- STATS -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-fire"></i>
+
+                <h3>Calories</h3>
+
+                <p>1850 kcal</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-drumstick-bite"></i>
+
+                <h3>Protein</h3>
+
+                <p>122 g</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-bowl-rice"></i>
+
+                <h3>Carbs</h3>
+
+                <p>210 g</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-seedling"></i>
+
+                <h3>Fiber</h3>
+
+                <p>30 g</p>
+
+            </div>
+
+        </section>
+
+</main>
+
+</div>
+
+<template id="recipeTemplate">
+
+    <article class="recipe-card">
+
+        <img class="recipe-image">
+
+        <div class="recipe-content">
+
+            <h3 class="recipe-title"></h3>
+
+            <div class="recipe-meta">
+
+                <span class="recipe-calories"></span>
+
+                <span class="recipe-time"></span>
+
+            </div>
+
+            <button class="favorite-btn">
+
+                <i class="fa-regular fa-heart"></i>
+
+            </button>
+
+        </div>
+
+    </article>
+
+</template>
 
 <script type="module" src="js/main.js"></script>
 

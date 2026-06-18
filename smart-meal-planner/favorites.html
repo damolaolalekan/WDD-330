@@ -1,13 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Favorites</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Favorites | Smart Meal Planner</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
+
 <body>
 
-<h1>Favorites</h1>
+<div class="container">
 
-<p>Coming in Week 06</p>
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                <i class="fa-solid fa-utensils"></i>
+
+            </div>
+
+            <div>
+
+                <h2>Smart</h2>
+
+                <span>Meal Planner</span>
+
+            </div>
+
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+
+                <i class="fa-solid fa-house"></i>
+
+                Home
+
+            </a>
+
+            <a href="planner.html">
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                Meal Planner
+
+            </a>
+
+            <a class="active" href="favorites.html">
+
+                <i class="fa-solid fa-heart"></i>
+
+                Favorites
+
+            </a>
+
+            <a href="shopping.html">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                Shopping List
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <h1>❤️ Favorite Recipes</h1>
+
+            <input
+                type="text"
+                id="favoriteSearch"
+                placeholder="Search favorites..."
+                class="favorite-search">
+
+        </header>
+
+        <div
+            id="favoritesGrid"
+            class="recipe-grid">
+
+        </div>
+
+    </main>
+
+</div>
+
+<template id="favoriteTemplate">
+
+    <article class="recipe-card">
+
+        <img class="recipe-image">
+
+        <div class="recipe-content">
+
+            <h3 class="recipe-title"></h3>
+
+            <div class="recipe-meta">
+
+                <span class="recipe-time"></span>
+
+            </div>
+
+            <div class="favorite-actions">
+
+                <button class="view-btn">
+
+                    View
+
+                </button>
+
+                <button class="remove-btn">
+
+                    Remove
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </article>
+
+</template>
+
+<script type="module">
+
+import Favorites from "./js/Favorites.mjs";
+
+const page = new Favorites();
+
+page.render();
+
+</script>
 
 </body>
+
 </html>
