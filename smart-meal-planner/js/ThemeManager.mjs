@@ -43,7 +43,7 @@ export default class ThemeManager {
         document.body.classList.toggle("dark");
 
         const dark =
-            document.body.classList.contains("dark");
+        document.body.classList.contains("dark");
 
         localStorage.setItem(
 

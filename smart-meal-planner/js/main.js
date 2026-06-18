@@ -1,34 +1,41 @@
-import { searchRecipes }
-from "./recipesearch.mjs";
+import RecipeSearch from "./RecipeSearch.mjs";
+import { createRecipeCard } from "./RecipeCard.mjs";
+import Favorites from "./Favorites.mjs";
+import ThemeManager from "./ThemeManager.mjs";
 
-import { createRecipeCard }
-from "./recipecard.mjs";
+const api = new RecipeSearch();
+const favorites = new Favorites();
 
-import { addFavorite}
-from "./favorites.mjs";
-
-import { initTheme, toggleTheme } from "./ThemeManager.mjs";
-
-initTheme();
-
-const searchBtn =
-document.getElementById("searchBtn");
+const theme = new ThemeManager();
+theme.initialize();
 
 const searchInput =
 document.getElementById("searchInput");
 
-const recipeContainer =
-document.getElementById("recipeContainer");
+const recipeGrid =
+document.getElementById("recipeGrid");
 
-searchBtn.addEventListener("click", async ()=>{
+// Search when Enter is pressed
+searchInput.addEventListener("keyup", async (e) => {
 
-    const query =
-    searchInput.value.trim();
+    if (e.key !== "Enter") return;
 
-    if(!query) return;
+    const query = searchInput.value.trim();
+
+    if (!query) return;
 
     const recipes =
-    await searchRecipes(query);
+    await api.searchRecipes(query);
+
+    displayRecipes(recipes);
+
+});
+
+// Load featured recipes
+window.addEventListener("DOMContentLoaded", async () => {
+
+    const recipes =
+    await api.getRandomRecipes();
 
     displayRecipes(recipes);
 
@@ -36,34 +43,38 @@ searchBtn.addEventListener("click", async ()=>{
 
 function displayRecipes(recipes){
 
-    recipeContainer.innerHTML = "";
+    recipeGrid.innerHTML="";
 
     recipes.forEach(recipe=>{
 
-        recipeContainer.innerHTML +=
+        recipeGrid.innerHTML +=
         createRecipeCard(recipe);
 
     });
 
 }
 
-document.addEventListener("click", (event) => {
-    if (
-        event.target.classList.contains(
-            "favorite-btn"
-        )
-    ) {
-        const recipe = {
-            id: event.target.dataset.id,
-            title: event.target.dataset.title,
-            image: event.target.dataset.image
-        };
+document.addEventListener("click",(event)=>{
 
-        addFavorite(recipe);
+    if(event.target.classList.contains("favorite-btn")){
+        
+        const card =
+        event.target.closest(".recipe-card");
 
-        alert("Recipe saved!");
+        favorites.add({
+
+            id:event.target.dataset.id,
+
+            title:event.target.dataset.title,
+
+            image:event.target.dataset.image,
+
+            readyInMinutes:20
+
+        });
+
+        alert("Recipe added to Favorites!");
+
     }
-});
 
-document.getElementById("themeToggle")
-.addEventListener("click", toggleTheme);
+});

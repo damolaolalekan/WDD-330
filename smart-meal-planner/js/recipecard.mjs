@@ -1,4 +1,4 @@
-export function createreciperard(recipe){
+export function createRecipeCard(recipe){
 
     return `
     <div class="recipe-card">
