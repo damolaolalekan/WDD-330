@@ -2,6 +2,7 @@ import RecipeSearch from "./RecipeSearch.mjs";
 import { createRecipeCard } from "./RecipeCard.mjs";
 import Favorites from "./Favorites.mjs";
 import ThemeManager from "./ThemeManager.mjs";
+console.log("main.js loaded");
 
 const api = new RecipeSearch();
 const favorites = new Favorites();
@@ -18,14 +19,17 @@ document.getElementById("recipeGrid");
 // Search when Enter is pressed
 searchInput.addEventListener("keyup", async (e) => {
 
+    console.log(e.key);
+
     if (e.key !== "Enter") return;
 
     const query = searchInput.value.trim();
 
-    if (!query) return;
+    console.log("Searching:", query);
 
-    const recipes =
-    await api.searchRecipes(query);
+    const recipes = await api.searchRecipes(query);
+
+    console.log(recipes);
 
     displayRecipes(recipes);
 
@@ -43,12 +47,13 @@ window.addEventListener("DOMContentLoaded", async () => {
 
 function displayRecipes(recipes){
 
+    console.log(recipes);
+
     recipeGrid.innerHTML="";
 
     recipes.forEach(recipe=>{
 
-        recipeGrid.innerHTML +=
-        createRecipeCard(recipe);
+        recipeGrid.innerHTML += createRecipeCard(recipe);
 
     });
 
@@ -76,5 +81,49 @@ document.addEventListener("click",(event)=>{
         alert("Recipe added to Favorites!");
 
     }
+
+});
+
+const generateBtn = document.getElementById("generateBtn");
+
+generateBtn.addEventListener("click", async () => {
+
+    const recipes = await api.getRandomRecipes(7);
+
+    if (!recipes.length) {
+        alert("Unable to generate meal plan.");
+        return;
+    }
+
+    const mealPlan = {};
+
+    const days = [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+    ];
+
+    days.forEach((day, index) => {
+
+        mealPlan[day] = {
+            id: recipes[index].id,
+            title: recipes[index].title,
+            image: recipes[index].image
+        };
+
+    });
+
+    localStorage.setItem(
+        "mealPlanner",
+        JSON.stringify(mealPlan)
+    );
+
+    alert("Weekly meal plan generated!");
+
+    window.location.href = "planner.html";
 
 });

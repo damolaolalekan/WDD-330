@@ -64,7 +64,7 @@ card.querySelector(".day-name").textContent=day;
 
 const input=card.querySelector(".meal-input");
 
-input.value=meals[day] || "";
+input.value=meals[day]?.title || "";
 
 card.querySelector(".save-meal")
 
